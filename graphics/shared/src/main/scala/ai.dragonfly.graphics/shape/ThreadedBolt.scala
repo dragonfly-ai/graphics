@@ -188,10 +188,10 @@ object ThreadedBolt {
         val v1 = Orientation.rotateAboutZAxis(theta, v)
         val v2 = if (s == sections - 1) {
           val t = v1.z / segmentHeight
-          val m = v1.copy.scale(xyScalar).magnitude()
-          v1.copy.normalize().scale(drumRadius + (m - drumRadius) * (1 - t))
+          val m = v1.copy().scale(xyScalar).magnitude()
+          v1.copy().normalize().scale(drumRadius + (m - drumRadius) * (1 - t))
         } else {
-          v1.copy.scale(xyScalar)
+          v1.copy().scale(xyScalar)
         }
         v1.scale(zScalar)
         pointSection(vj) = Vector3(v2.x, v2.y, v1.z).add(sectionOffset).add(position)

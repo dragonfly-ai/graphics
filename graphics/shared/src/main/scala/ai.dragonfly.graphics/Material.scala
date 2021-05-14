@@ -1,15 +1,17 @@
 package ai.dragonfly.graphics
 
-import java.io.{File, PrintWriter}
-
-import ai.dragonfly.color.{Color, RGBA, SlowSlimLab}
+import ai.dragonfly.color.Color
 
 
-case class Specular(color: RGBA = Color.GRAY, exponent: Float = 10f) {
+case class Specular(color: Color = Color.GRAY, exponent: Float = 10f) {
   def mtl: String = s"Ks ${color.red / 255f} ${color.green / 255f} ${color.blue / 255f}\nNs $exponent\n"
 }
 
-case class Material(name: String, diffuse: RGBA, ambient: RGBA = Color.GRAY, specular: Specular = Specular(), dissolve: Float = 1f) {
+object Material {
+  val default:Material = Material("metal", Color.GRAY)
+}
+
+case class Material(name: String, diffuse: Color, ambient: Color = Color.GRAY, specular: Specular = Specular(), dissolve: Float = 1f) {
   def mtl: String = {
     val sb: StringBuilder = new StringBuilder()
     sb.append(s"newmtl $name\n")
