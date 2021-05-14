@@ -18,7 +18,7 @@ object OBJ {
     ai.dragonfly.graphics.io.OBJ.writeMeshGroup(meshGroup, new FileOutputStream(file), comment, materialFileName)
     file
   }
-
+/*
   def main(args:Array[String]):Unit = {
     val m:Mesh = ai.dragonfly.graphics.io.OBJ.read("Tank", new FileInputStream(new File("/home/c/BlenderScenes/minecraft/tankSimple.obj")))
     writeMeshFile(m, new File("/home/c/BlenderScenes/minecraft/tankSimple.obj"))
@@ -29,7 +29,7 @@ object OBJ {
     for (v <- voxels) {
       println(s"mc.setBlock(spot + Vec3(${v.x}, ${v.y}, ${v.z}), 35, ${if (Math.random() > 0.5) 12 else 13})")
     }
-/*
+
     val ocTable: Array[Array[Array[Int]]] = Array[Array[Array[Int]]](
       Array[Array[Int]]( // x = 0
         Array[Int]( // y = 0
@@ -86,8 +86,8 @@ object OBJ {
       val (b:Int, bd:Int) = blocks.getOrElse(bytes, (43, 2))
       if (b != 0) println(s"mc.setBlock(spot + Vec3(${v.x}, ${v.y}, ${v.z}), $b, $bd) # $bytes")
     }
-    */
   }
+ */
 }
 
 /*{
