@@ -4,6 +4,9 @@ import ai.dragonfly.math.vector.Vector3
 
 import scala.collection.immutable.HashSet
 
+/**
+ * Abstract type for polygonal faces.
+ */
 trait Polygon {
   def objFace(offset: Int = 0): String
   def offset(delta: Int): Polygon
