@@ -185,11 +185,11 @@ object ThreadedBolt {
       val theta: Double = angles(t)
 
       for (v <- referencePoints) {
-        val v1 = Orientation.rotateAboutZAxis(theta, v)
-        val v2 = if (s == sections - 1) {
+        val v1:Vector3 = Orientation.rotateAboutZAxis(theta, v)
+        val v2:Vector3 = if (s == sections - 1) {
           val t = v1.z / segmentHeight
           val m = v1.copy().scale(xyScalar).magnitude()
-          v1.copy().normalize().scale(drumRadius + (m - drumRadius) * (1 - t))
+          v1.copy().normalize().scale(drumRadius + (m - drumRadius) * (1 - t)).asInstanceOf[Vector3]
         } else {
           v1.copy().scale(xyScalar)
         }
